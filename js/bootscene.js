@@ -33,16 +33,16 @@ var BootScene = new Phaser.Class({
 
     // ── Assets de imagem ──────────────────────────
     // fundo preto → tratado com setTint / blendMode nas scenes
-    this.load.image('player',     'assets/images/player_png.png');
+    this.load.image('player',     'assets/images/player.png');
     this.load.image('npc',        'assets/images/npc.png');
-    this.load.image('chest',      'assets/images/chest_png.png');
+    this.load.image('chest',      'assets/images/chest.png');
     this.load.image('heart',      'assets/images/heart.png');
-    this.load.image('background', 'assets/images/background_png.png');
+    this.load.image('background', 'assets/images/background.png');
     this.load.image('tileset',    'assets/images/tileset.png');
+    this.load.audio('music',      'assets/audio/musica.mp3');
 
-    // Spritesheet do player: 4 frames por linha, 3 linhas (baixo, lado, cima)
-    // A imagem player_png.png tem fundo preto → usamos blendMode ADD nas scenes
-    this.load.spritesheet('player_sheet', 'assets/images/player_png.png', {
+    // Spritesheet do player: 4 colunas x 3 linhas = 1536x1024
+    this.load.spritesheet('player_sheet', 'assets/images/player.png', {
       frameWidth:  384,  // 1536 / 4 colunas
       frameHeight: 341   // 1024 / 3 linhas (arredondado)
     });
