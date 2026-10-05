@@ -1,0 +1,17 @@
+# Dependências
+node_modules/
+
+# Ferramentas de teste local (não fazem parte do jogo)
+/gamecheck/
+*.local.js
+
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
