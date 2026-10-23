@@ -1,17 +1,16 @@
 // js/main.js
-// ─────────────────────────────────────────
-// Carrega todas as scenes via tag <script> no HTML
-// (sem ES modules para compatibilidade máxima com GitHub Pages)
-// As scenes são declaradas como variáveis globais em cada arquivo
+// Ponto de entrada: monta a configuração do Phaser e liga o jogo.
+// Deve ser o último <script> do index.html.
 
 window.addEventListener('load', () => {
+  const CFG = Game.CONFIG;
 
-  const config = {
+  window.GAME = new Phaser.Game({
     type: Phaser.AUTO,
     parent: 'game-container',
-    width: 360,
-    height: 640,
-    backgroundColor: '#1a1a2e',
+    width: CFG.WIDTH,
+    height: CFG.HEIGHT,
+    backgroundColor: CFG.BACKGROUND,
     pixelArt: true,
 
     scale: {
@@ -27,7 +26,6 @@ window.addEventListener('load', () => {
       }
     },
 
-    // Ordem das scenes
     scene: [
       BootScene,
       MenuScene,
@@ -39,19 +37,7 @@ window.addEventListener('load', () => {
       EndScene,
       CreditsScene
     ]
-  };
+  });
 
-  window.GAME = new Phaser.Game(config);
-
-  // Estado global do jogo
-  window.GAME_STATE = {
-    hasMapPiece:  false,
-    hasKey:       false,
-    hasCompass:   false,
-    chestOpened:  false,
-    puzzle1Done:  false,
-    puzzle2Done:  false,
-    puzzle3Done:  false,
-    npcGreeted:   false   // NPC do fone no final
-  };
+  Game.State.reset();
 });
